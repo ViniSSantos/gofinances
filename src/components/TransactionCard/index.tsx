@@ -11,24 +11,24 @@ import {
     Date,
 } from './styled';
 
-interface Category {
+interface CategoryProps {
     name: string;
     icon: string
 };
 
-interface Data {
+export interface TransactionCardProps {
     type: 'positive' | 'negative';
     title: string;
     amount: string;
-    category: Category;
+    category: CategoryProps;
     date: string;
 };
 
 interface Props {
-    data: Data;
+    data: TransactionCardProps;
 }
 
-export function TransactionCard({ data } : Props){
+export function TransactionCard({ data }: Props){
     return(
         <Container>
             <Title> 
