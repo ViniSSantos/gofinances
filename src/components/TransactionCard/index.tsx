@@ -1,57 +1,50 @@
 import React from "react";
 
-import { 
-    Container,
-    Title,
-    Amount,
-    Footer,
-    Category,
-    Icon,
-    CategoryName,
-    Date,
-} from './styled';
+import {
+  Container,
+  Title,
+  Amount,
+  Footer,
+  Category,
+  Icon,
+  CategoryName,
+  Date,
+} from "./styled";
 
 interface CategoryProps {
-    name: string;
-    icon: string
-};
-
-export interface TransactionCardProps {
-    type: 'positive' | 'negative';
-    title: string;
-    amount: string;
-    category: CategoryProps;
-    date: string;
-};
-
-interface Props {
-    data: TransactionCardProps;
+  name: string;
+  icon: string;
 }
 
-export function TransactionCard({ data }: Props){
-    return(
-        <Container>
-            <Title> 
-                {data.title}
-            </Title>
+export interface TransactionCardProps {
+  type: "positive" | "negative";
+  title: string;
+  amount: string;
+  category: CategoryProps;
+  date: string;
+}
 
-            <Amount type={data.type}>
-                {data.type === 'negative' && '- '}
-                {data.amount}
-            </Amount>
+interface Props {
+  data: TransactionCardProps;
+}
 
-            <Footer>
-                <Category>
-                    <Icon name = {data.category.icon} />
-                    <CategoryName>
-                        {data.category.name}
-                    </CategoryName>
-                </Category>
-                <Date>
-                    {data.date}
-                </Date>
-            </Footer>
+export function TransactionCard({ data }: Props) {
+  return (
+    <Container>
+      <Title>{data.title}</Title>
 
-        </Container>
-    )
+      <Amount type={data.type}>
+        {data.type === "negative" && "- "}
+        {data.amount}
+      </Amount>
+
+      <Footer>
+        <Category>
+          <Icon name={data.category.icon} />
+          <CategoryName>{data.category.name}</CategoryName>
+        </Category>
+        <Date>{data.date}</Date>
+      </Footer>
+    </Container>
+  );
 }
