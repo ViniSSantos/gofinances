@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "../../components/Forms/Button";
 import { Input } from "../../components/Forms/Input";
 import { TransactionTypeButton } from "../../components/Forms/TransactionTypeButton";
+import { CategorySelect } from "../../components/Forms/CategorySelect";
 
 import {
     Container,
@@ -17,10 +18,10 @@ import {
 export function Register() {
     const [transactionType, setTransactionType] = useState('');
 
-    function handTransactionsTypeSelect(type: 'up' | 'down'){
+    function handTransactionsTypeSelect(type: 'up' | 'down') {
         setTransactionType(type)
     }
- 
+
     return (
         <Container>
             <Header>
@@ -48,6 +49,7 @@ export function Register() {
                             isActive={transactionType === 'down'}
                         />
                     </TransactionsTypes>
+                    <CategorySelect title="Categoria" />
                 </Fields>
 
                 <Button title="Enviar" />
